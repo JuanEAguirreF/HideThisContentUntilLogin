@@ -2,7 +2,7 @@
 /**
  * Plugin Name: HideThisContentUntilLogin
  * Description: Provides a custom Gutenberg block to restrict content visibility based on user login status.
- * Version: 0.1.0
+ * Version: 0.1.3
  * Author: Waylayer
  * Text Domain: hide-this-content-until-login
  * Domain Path: /languages
@@ -17,7 +17,7 @@ if (!defined('WPINC')) {
 /**
  * Define plugin constants
  */
-define('HTCUL_VERSION', '0.1.0');
+define('HTCUL_VERSION', '0.1.3');
 define('HTCUL_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('HTCUL_PLUGIN_URL', plugin_dir_url(__FILE__));
 
@@ -25,11 +25,14 @@ define('HTCUL_PLUGIN_URL', plugin_dir_url(__FILE__));
  * Register the block and its assets
  */
 function htcul_register_block() {
+    // Generar timestamp para evitar caché
+    $timestamp = time();
+    
     // Register block script
     wp_register_script(
         'htcul-restricted-content-block',
-        HTCUL_PLUGIN_URL . 'build/index.js',
-        array('wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n'),
+        HTCUL_PLUGIN_URL . 'build/index.js?ver=' . $timestamp,
+        array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n'),
         HTCUL_VERSION,
         true
     );
@@ -37,12 +40,12 @@ function htcul_register_block() {
     // Register block editor styles
     wp_register_style(
         'htcul-restricted-content-block-editor',
-        HTCUL_PLUGIN_URL . 'build/index.css',
+        HTCUL_PLUGIN_URL . 'build/index.css?ver=' . $timestamp,
         array('wp-edit-blocks'),
         HTCUL_VERSION
     );
 
-    // Register block
+    // Register block with namespace
     register_block_type('htcul/restricted-content', array(
         'editor_script' => 'htcul-restricted-content-block',
         'editor_style' => 'htcul-restricted-content-block-editor',

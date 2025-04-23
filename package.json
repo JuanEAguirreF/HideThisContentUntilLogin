@@ -5,14 +5,12 @@
   "main": "build/index.js",
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start",
-    "format": "wp-scripts format",
-    "lint:js": "wp-scripts lint-js"
+    "start": "wp-scripts start"
   },
-  "author": "WordPress Developer",
+  "author": "Waylayer",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/scripts": "^26.0.0"
+    "@wordpress/scripts": "^26.19.0"
   },
   "dependencies": {
     "@wordpress/block-editor": "^12.0.0",

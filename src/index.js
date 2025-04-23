@@ -5,16 +5,17 @@ import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks, useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { RadioControl, PanelBody } from '@wordpress/components';
-import { lockOpen } from '@wordpress/icons';
+import { lock } from '@wordpress/icons';
 
 /**
  * Register the block
  */
 registerBlockType('htcul/restricted-content', {
+    apiVersion: 2,
     title: __('Restricted Content', 'hide-this-content-until-login'),
     description: __('Restrict content visibility based on user login status.', 'hide-this-content-until-login'),
     category: 'widgets',
-    icon: lockOpen,
+    icon: lock,
     supports: {
         html: false,
         align: true,
