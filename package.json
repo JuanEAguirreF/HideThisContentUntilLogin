@@ -1,0 +1,23 @@
+{
+  "name": "hide-this-content-until-login",
+  "version": "1.0.0",
+  "description": "WordPress plugin to restrict content visibility based on user login status",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "lint:js": "wp-scripts lint-js"
+  },
+  "author": "WordPress Developer",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^12.0.0",
+    "@wordpress/blocks": "^12.0.0",
+    "@wordpress/components": "^25.0.0",
+    "@wordpress/i18n": "^4.0.0"
+  }
+}
